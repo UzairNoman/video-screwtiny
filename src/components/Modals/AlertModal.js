@@ -1,15 +1,14 @@
 import React from 'react'
 
 const AlertModal = ({ closeModal, title, message }) => {
+
   const renderContent = () => {
     let modalMsg = ''
     for (let [key, value] of Object.entries(message)) {
       console.log(key, value);
       modalMsg += '<span><b> '+ key +' </b></span> : <span> ' + value + ' </span></br>' ;
     }
-    return { __html : modalMsg}
-  
-    
+    return { __html : modalMsg}    
   }
   return (
     <div className="modal-content">

@@ -15,73 +15,6 @@ class VideoUpload extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.state = { files: [] }
   }
-  parseFile(file, mi) {
-
-
-    // var processChunk = function(e) {
-    //   var l;
-    //   if (e.target.error === null) {
-    //     var chunk = new Uint8Array(e.target.result);
-    //     l = chunk.length;
-    //     state = mi.open_buffer_continue(chunk, l);
-
-    //     var seekTo = -1;
-    //     var seekToLow = mi.open_buffer_continue_goto_get_lower();
-    //     var seekToHigh = mi.open_buffer_continue_goto_get_upper();
-
-    //     if (seekToLow == -1 && seekToHigh == -1) {
-    //       seekTo = -1;
-    //     } else if (seekToLow < 0) {
-    //       seekTo = seekToLow + 4294967296 + (seekToHigh * 4294967296);
-    //     } else {
-    //       seekTo = seekToLow + (seekToHigh * 4294967296);
-    //     }
-
-    //     if(seekTo === -1){
-    //       offset += l;
-    //     }else{
-    //       offset = seekTo;
-    //       mi.open_buffer_init(fileSize, seekTo);
-    //     }
-    //     chunk = null;
-    //   } else {
-    //     var msg = 'An error happened reading your file!';
-    //     console.err(msg, e.target.error);
-    //     processingDone();
-    //     alert(msg);
-    //     return;
-    //   }
-    //   // bit 4 set means finalized
-    //   if (state&0x08) {
-    //     var result = mi.inform();
-    //     mi.close();
-    //     addResult(file.name, result);
-    //     processingDone();
-    //     return;
-    //   }
-    //   seek(l);
-    // };
-
-
-
-    // seek = function(length) {
-    //   if (processing) {
-    //     var r = new FileReader();
-    //     var blob = file.slice(offset, length + offset);
-    //     r.onload = processChunk;
-    //     r.readAsArrayBuffer(blob);
-    //   }
-    //   else {
-    //     mi.close();
-    //     processingDone();
-    //   }
-    // };
-
-    // start
-    //seek(CHUNK_SIZE);
-
-    //_paq.push(['trackEvent', 'File', 'AnalysisRun', file.name]);
-  }
   onDrop(file) {
     console.log(file[0]);
     file = file[0];
@@ -136,15 +69,9 @@ class VideoUpload extends Component {
           alert(msg);
           return;
         }
-        // bit 4 set means finalized
-        //if (state & 0x08) {
           var result = mi.inform();
-         // mi.close();
           addResult(file.name, result);
-         // processingDone();
-         // return;
-        //}
-        //seek(l);
+ 
       };
       seek = function (length) {
         if (processing) {
@@ -210,4 +137,4 @@ class VideoUpload extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(VideoUpload);;
+export default connect(null, mapDispatchToProps)(VideoUpload);

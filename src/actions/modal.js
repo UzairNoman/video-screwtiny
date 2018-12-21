@@ -1,19 +1,16 @@
 import ActionTypes from '../constants/ActionTypes';
 
-export const showModal = ({ modalProps, modalType }) => dispatch => {
-  console.log(modalProps,modalType);
-  
-  dispatch({
+export const showModal = ({ modalProps, modalType }) => {
+  return{
     type: ActionTypes.SHOW_MODAL,
     modalProps,
     modalType
-  });
+  };
 }
 
-export const hideModal = () => dispatch => {
-  console.log("AasS");
+export const hideModal = () => {
   
-  dispatch({
+  return{
     type: ActionTypes.HIDE_MODAL
-  });
+  };
 }
