@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import { showModal, hideModal } from './actions/modal'
 import { connect }            from 'react-redux'
-import ModalRoot from './ModalRoot';
+import DetailModal from './DetailModal';
 const mapDispatchToProps = dispatch => ({
   hideModal: () => dispatch(hideModal()),
   showModal: (modalProps, modalType) => {
@@ -130,7 +130,7 @@ class VideoUpload extends Component {
           >
             <p>Drop your file</p>
           </Dropzone>
-          <ModalRoot/>
+          <DetailModal/>
         </div>
       </section>
     );
