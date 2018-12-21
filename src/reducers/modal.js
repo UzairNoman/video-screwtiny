@@ -1,0 +1,23 @@
+import ActionTypes from '../constants/ActionTypes';
+
+const initialState = {
+  modalType: null,
+  modalProps: {}
+}
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case ActionTypes.SHOW_MODAL:
+      console.log(state,action);
+      
+      return {
+        modalProps: action.modalProps,
+        modalType: action.modalType,
+        type: action.type
+      }
+    case ActionTypes.HIDE_MODAL:
+      return initialState
+    default:
+      return state
+  }
+}
